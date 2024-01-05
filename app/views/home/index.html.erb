@@ -1,0 +1,28 @@
+	
+<div class="row">
+		<div class="col-md-2" style="margin-top: 20px;">
+			<ul class="nav nav-pills nav-stacked">
+        <!--list of pages-->
+        <% @pages.each do |page|%>
+          <%if page==@page%>
+				    <li class="active">
+          <% else %>
+            <li>
+          <%end%>
+            <a href="/page/<%=page.url%>.html">
+            <% if not page.visible%>
+              <i class="glyphicon glyphicon-user"></i>
+            <%end%> <%=page.title%>  </a>
+          </li>
+        <%end%>
+			</ul>
+     
+		</div>
+		<div class="col-md-10 markdown-content">
+      <%= markdown @page.content%>
+      <hr/>
+      <% if user_signed_in? and (current_user.admin? or @page.editable)%>
+        <%= link_to "Edit", edit_page_path(@page), class: "btn btn-default"%>
+      <%end%>
+    </div>
+</div>

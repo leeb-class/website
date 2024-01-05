@@ -1,0 +1,37 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#header{
+	margin: 25px;
+}
+#header h1{
+	font-size: 3em;
+	display: inline;
+}
+#header a{
+  text-decoration: none;
+  color: #000;
+}
+#header span.menu{
+	margin-left: 25px;
+}
+#header .menu a{
+	color: #428bca;
+}
+.menu a:visited{
+	color: #428bca;
+};
+.menu a:hover{
+	background: none;
+}
+
+//form validation
+.field_with_errors{
+	color: #a94442;	
+}
+
+//markdown touchup
+.markdown-content td{
+  padding-right: 8px;
+}

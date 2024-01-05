@@ -1,0 +1,58 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--admin only action-->
+  <% if current_user.admin?%>
+  <div class="form-group">
+  <%= f.label :title%>
+  <%= f.text_field :title, class: "form-control"%>
+  </div>
+  <% end %>
+  <!-- -->
+  <div class="form-group">
+    <%=f.label :content%>
+    <!--link to github's markdown syntax guide-->
+    <a class="pull-right" href="https://guides.github.com/features/mastering-markdown/">
+      Markdown Syntax <i class="glyphicon glyphicon-new-window"></i>
+    </a>
+
+    <div style="border-style: solid; border-width: 1px; border-color: #AAA;">
+      <%=f.text_area :content, class: "form-control", id: "codepanel"%>
+    </div>
+  </div>
+  <!--admin only actions-->
+  <% if current_user.admin?%>
+  <div class="form-group">
+  <%= f.label :order%>
+  <%= f.text_field :order, class: "form-control"%>
+  </div>
+  <div class="checkbox">
+    <label>Publicly visible?<%= f.check_box :visible%>
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>User editable?<%= f.check_box :editable%>
+    </label>
+  </div>
+  <%end%>
+  <!-- -->
+  <div class="actions">
+    <%= f.submit class: "btn btn-success btn-block" %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("codepanel"),
+    {lineNumbers: true,
+     mode: "markdown"});
+  })
+</script>
