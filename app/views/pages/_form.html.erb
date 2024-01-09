@@ -33,12 +33,13 @@
   <%= f.label :order%>
   <%= f.text_field :order, class: "form-control"%>
   </div>
+   
   <div class="checkbox">
-    <label>Publicly visible?<%= f.check_box :visible%>
+    <label><%= f.check_box :visible%> Publicly visible?
     </label>
   </div>
   <div class="checkbox">
-    <label>User editable?<%= f.check_box :editable%>
+    <label><%= f.check_box :editable%> User editable?
     </label>
   </div>
   <%end%>
@@ -50,9 +51,9 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-  var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("codepanel"),
-    {lineNumbers: true,
-     mode: "markdown"});
-  })
+var editor = CodeMirror.fromTextArea(document.getElementById("codepanel"), {
+            lineNumbers: true,
+            mode: "markdown" // Specify the language mode
+        });
+
 </script>

@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     end
   end
   def load_settings
-    @settings = Setting.find_or_create_by(id: 1)
+    @settings = {
+      title: ENV['TITLE'],
+      subtitle: ENV['SUBTITLE'],
+      page_title: ENV['PAGE_TITLE']
+    }
   end
 end
