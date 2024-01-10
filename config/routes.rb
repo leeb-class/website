@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :users
   end
   root 'home#index'
+  get 'pages/delete/:id' => 'pages#destroy'
+  get 'users/delete/:id' => 'users#destroy'
+  get 'documents/delete/:id' => 'documents#destroy'
   get 'page/:url' => 'home#index'
   get 'document/:url' => 'documents#url'
 end

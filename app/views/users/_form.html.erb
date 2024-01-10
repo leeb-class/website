@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+  <%= f.label :username%>
+  <%= f.text_field :username, class: "form-control"%>
+  </div>
+  <div class="form-group">
+  <%= f.label :email%>
+  <%= f.email_field :email, class: "form-control"%>
+  </div>
+  <div class="checkbox">
+    <label><%= f.check_box :admin%> Administrator?
+    </label>
+  </div>
+  <div class="form-group">
+  <%= f.label :password%>
+  <%= f.password_field :password, class: "form-control"%>
+  </div>
+  <div class="form-group">
+  <%= f.label :password_confirmation%>
+  <%= f.password_field :password_confirmation, class: "form-control"%>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit class: "btn btn-success btn-block" %>
+  </div>
+<% end %>

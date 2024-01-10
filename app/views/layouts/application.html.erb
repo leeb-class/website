@@ -7,6 +7,7 @@
   <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/markdown/markdown.min.js" integrity="sha512-DmMao0nRIbyDjbaHc8fNd3kxGsZj9PCU6Iu/CeidLQT9Py8nYVA5n0PqXYmvqNdU+lCiTHOM/4E7bM/G8BttJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 </head>
@@ -62,10 +63,7 @@
           <li><%=link_to "Documents", documents_path%></li>
           <li><%=link_to "Users", users_path%></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="backup.zip"><i class="glyphicon glyphicon-floppy-save"></i>
-            Download Backup</a></li>
-        </ul>
+        
       </div>
     </div>
   </nav>

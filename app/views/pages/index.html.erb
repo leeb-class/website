@@ -33,7 +33,7 @@
                 </td>
                 <td><%= link_to 'Show', page %></td> 
                 <td><%= link_to 'Edit', edit_page_path(page) %></td>
-                <td><%= link_to 'Destroy', page, 
+                <td><%= link_to 'Destroy', "/pages/delete/#{page.id}", 
                   method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
